@@ -33,5 +33,5 @@ void loop() {
     Serial.println(sensorValue);
     apagar_agua();
   }
-    delay(3600 * SECONDS); // Cada hora
+    delay(86400 * SECONDS); // Cada dia
 }

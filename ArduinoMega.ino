@@ -8,7 +8,7 @@ int relayPin = 3;
 
 void setup() {
   Serial.begin(9600);
-  espSerial.begin(9600);
+  espSerial.begin(9600); // Comunicacion serial con el ESP32
   pinMode(relayPin, OUTPUT);
 }
 
@@ -22,9 +22,9 @@ void apagar_agua() {
 
 void loop() {
   int sensorValue = analogRead(A14);
-  espSerial.print(sensorValue);
+  espSerial.print(sensorValue); // Enviar el valor de la humedad al ESP32
 
-  if (sensorValue > 400 && sensorValue < 900) {
+  if (sensorValue > 950) {
     Serial.println("Prender ");
     Serial.println(sensorValue);
     prender_agua();
@@ -33,5 +33,5 @@ void loop() {
     Serial.println(sensorValue);
     apagar_agua();
   }
-    delay(3 * SECONDS);
+    delay(3600 * SECONDS); // Cada hora
 }

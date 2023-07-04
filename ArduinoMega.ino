@@ -28,10 +28,11 @@ void loop() {
     Serial.println("Prender ");
     Serial.println(sensorValue);
     prender_agua();
+    delay(120 * SECONDS); // 2 min de riego
   } else {
     Serial.println("Apagar ");
     Serial.println(sensorValue);
     apagar_agua();
+    delay(3600 * SECONDS); // Cada hora chequear si la tierra esta seca
   }
-    delay(86400 * SECONDS); // Cada dia
 }
